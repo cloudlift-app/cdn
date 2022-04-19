@@ -284,7 +284,7 @@
              ${hi(t.visible?et`
                  <div class="cl-po--option" data-option="${t.name}">
                     ${t.label?et`
-                    <label class="cl-po--label" for="${t.id}">${Je(t.label)} ${t.value&&t.params.labelValueText?et`<span class="cl-po--value">&nbsp;${sr((t=>{if(t.values){for(let e=0;e<t.values.length;e++){const i=t.values[e];if(i.value==t.value)return i}return null}})(t))}</span>`:null} ${t._priceText?et`<span class="cl-po--price">&nbsp;${Je(ar(t._priceText,t.params.priceTemplate))}</span>`:null}    ${t.params.info?et`<span class="cl-po--info" data-tippy-content="${t.params.info}"></span>`:null}</label>
+                    <label class="cl-po--label" for="${t.id}">${Je(t.label)} ${t.value&&t.params.labelValueText?et`<span class="cl-po--value">&nbsp;${sr((t=>{if(t.values){let e=t._controller&&t._controller.multiSelect,i=e?[]:null;for(let r=0;r<t.values.length;r++){const n=t.values[r];if(e&&t._controller.isSelected(t,n))i.push(sr(n));else if(n.value==t.value)return n}return i&&i.length?{text:i.join(",")}:null}})(t))}</span>`:null} ${t._priceText?et`<span class="cl-po--price">&nbsp;${Je(ar(t._priceText,t.params.priceTemplate))}</span>`:null}    ${t.params.info?et`<span class="cl-po--info" data-tippy-content="${t.params.info}"></span>`:null}</label>
                     `:null}
                     
                     ${Qi.templates[t.type]?et`

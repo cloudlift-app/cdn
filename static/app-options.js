@@ -279,7 +279,7 @@
             <option .value=${e.value} ?selected=${t.value==e.value} > ${mr(t,e,Ni.moneyFormat,!0)}</option>
         `))}
     </select>
-`,Ki.templates.font=(t,e,i)=>{let r;r=t.params.fontFamilies&&t.params.fontFamilies.length?t.params.fontFamilies:d.fonts.map((t=>t.name)),t.values=r.map((t=>({value:t,text:" ",img:d.fontPreview(t)})));let o="dropdown";return t.params.fontSwatch&&(t.params.grow=!0,t.params.items=t.params.fontSwatchItems||3,o="img-swatch"),et`
+`,Ki.templates.font=(t,e,i)=>{let r;r=t.params.fontFamilies&&t.params.fontFamilies.length?t.params.fontFamilies:d.fonts.map((t=>t.name)),t.params.fontSortAlpha&&r.sort(((t,e)=>t.localeCompare(e))),t.values=r.map((t=>({value:t,text:" ",img:d.fontPreview(t)})));let o="dropdown";return t.params.fontSwatch&&(t.params.grow=!0,t.params.items=t.params.fontSwatchItems||3,o="img-swatch"),et`
         <div class="cl-po--font-selector">
             ${Ki.templates[o](t,e,i)}
         </div>
@@ -347,7 +347,7 @@
                 <label class="cl-po--input cl-po--upload-button">
                  <input type="file" @change=${r=>t._controller.onChange(r,t,e.productForm,i)} 
                     ?required=${t.required} ?multiple=${t.params.multiple}  accept=${mi(t.params.accept)} >
-                 <span>${mi(t.params.button||"Choose file")}</span>
+                 <span>${Je(t.params.button||"Choose file")}</span>
                 </label>
                 ${t.value&&t._layer&&t._layer.params.crop?et`
                     <label class="cl-po--input cl-po--upload-button crop ${li({"has-label":t._layer.params.cropLabel})}" @click=${i=>t._controller.crop(t,e.productForm)}>
@@ -369,8 +369,9 @@
             <div class="cl-po--upload-lift ${li(wr(t))}">
                 <div class="cl-po--upload-lift-${t.id}"></div>
                 ${t.value&&t._layer&&t._layer.params.crop?et`
-                    <label class="cl-po--input cl-po--upload-lift-crop" @click=${i=>t._controller.crop(t,e.productForm)}>
+                    <label class="cl-po--input cl-po--upload-lift-crop ${li({"has-label":t._layer.params.cropLabel})}" @click=${i=>t._controller.crop(t,e.productForm)}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" ><path fill="currentColor" d="M15 17v2H6a1 1 0 0 1-1-1V7H2V5h3V2h2v15h8zm2 5V7H9V5h9a1 1 0 0 1 1 1v11h3v2h-3v3h-2z" /></svg>
+                        ${t._layer.params.cropLabel?et`<span class="cl-po--crop-label">${t._layer.params.cropLabel}</span>`:null}
                     </label>
                 `:null}
 

@@ -232,7 +232,14 @@
             
             <input type="hidden" name="properties[${Di.QUANTITY_ID}]" value=${t._controller.quantityId} form=${mi(e.productFormLink)}>
             <input type="hidden" name="properties[${Di.QUANTITY_DISCOUNT}]" value=${t._controller.quantityDiscount} form=${mi(e.productFormLink)}>
-        `):et``,Zi.templates.personalize=(t,e,i)=>et`
+        `):et``;Zi.templates.personalize=(t,e,i)=>t.params.btnCheckbox?et`
+            ${ni(t.values||[],((i,r)=>0===r?et`
+                        <label class="cl-po--checkbox-item ${li(br(t,i))}">
+                            <input type="checkbox" class="cl-po--input ${li(xr(t))}" id="${t.id}-${r}" name="${kr(t)}" .value=${i.value} @change=${e=>((t,e,i)=>(e.value=e.value===e.values[0].value?e.values[1].value:e.values[0].value,i(e)))(0,t,(t=>t._controller.onChange(e,t,!0)))}
+                                   .checked=${t.value==i.value} ?required=${t.required} form=${mi(e.productFormLink)}>
+                            ${Je(fr(t,i,ji.moneyFormat))}
+                        </label>`:et`<input type="checkbox" style="display:none;" name="${kr(t)}" id="${t.id}" value=${i.value} .checked=${t.value==i.value}  form=${mi(e.productFormLink)} />`))}
+        `:et`
             <div class="cl-po--swatch-container">
                 ${ni(t.values||[],((r,o)=>et`
 

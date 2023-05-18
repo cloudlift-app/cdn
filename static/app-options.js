@@ -410,7 +410,7 @@ class Ei{add(t){this.classes.add(t),this.changed=!0}remove(t){this.classes.delet
         <select class="cl-po--input ${Si(Br(t))}" id="${t.id}-select" @change=${e=>t._controller.onChange(e,t)} multiple>
         </select>
         `:Z`
-        <select class="cl-po--input ${Si(Br(t))}" id="${t.id}" ?name="${Gr(t)}" @change=${e=>Zr(e,t,i)} ?required=${t.required} form=${Ii(e.productFormLink)}>
+        <select class="cl-po--input ${Si(Br(t))}" id="${t.id}" name="${Gr(t)}" @change=${e=>Zr(e,t,i)} ?required=${t.required} form=${Ii(e.productFormLink)}>
         </select>
         `};const ro=(t,e,i,r="")=>Z`
     <div class="cl-po--collapse ${i?r+" cl-po--open":r}" @click=${t=>(t=>{let e=t.currentTarget,i=-1!==e.className.indexOf("open"),r=e.nextElementSibling;i||(r.style.maxHeight=r.scrollHeight+100+"px",setTimeout((()=>{r.style.maxHeight&&(r.style.maxHeight=null)}),500)),e.classList.toggle("cl-po--open")})(t)}>${t}</div>

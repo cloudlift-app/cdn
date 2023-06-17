@@ -241,6 +241,7 @@ class Ei{add(t){this.classes.add(t),this.changed=!0}remove(t){this.classes.delet
                                .checked=${Fi(t._controller.isSelected(t,i))} ?disabled=${i.disabled} form=${Ii(e.productFormLink)}>
                         <div class="cl-po--swatch cl-po--swatch-color ${Pi(Ur(t,"small"))}" style=${ki({backgroundColor:i.color})} data-tippy-content="${Rr(t,i,pr.moneyFormat)}" data-tippy-placement="bottom">
                         </div>
+                        <span class="visually-hidden">${Rr(t,i,pr.moneyFormat)}</span>
                     </label>
                     ${t.params.items&&(r+1)%t.params.items==0?Z`<div class="cl-po--break" data-index=${r}></div>`:null}
                 `))}
@@ -254,6 +255,7 @@ class Ei{add(t){this.classes.add(t),this.changed=!0}remove(t){this.classes.delet
                     <div class="cl-po--swatch cl-po--swatch-color ${Pi(Ur(t,"small"))}" style=${ki({backgroundColor:r.color})} data-tippy-content="${Rr(t,r,pr.moneyFormat)}" data-tippy-placement="bottom"
                          @click=${e=>zr(e,t,r,i)}>
                     </div>
+                    <span class="visually-hidden">${Rr(t,r,pr.moneyFormat)}</span>
                 </label>
                 ${t.params.items&&(o+1)%t.params.items==0?Z`<div class="cl-po--break" data-index=${o}></div>`:null}
             `))}
@@ -269,6 +271,7 @@ class Ei{add(t){this.classes.add(t),this.changed=!0}remove(t){this.classes.delet
                             ${i.img?Z`<img src="${vr(i.img,gr(t.params.size||"large"))}" />`:null}
                         </div>
                         ${t.params.imgText?Z`<span class="cl-po--swatch-text">${fi(Rr(t,i,pr.moneyFormat))}</span>`:null}
+                        <span class="visually-hidden">${Rr(t,i,pr.moneyFormat)}</span>
                     </label>
                     ${t.params.items&&(r+1)%t.params.items==0?Z`<div class="cl-po--break" data-index=${r}></div>`:null}
                 `))}
@@ -284,6 +287,7 @@ class Ei{add(t){this.classes.add(t),this.changed=!0}remove(t){this.classes.delet
                             ${r.img?Z`<img src="${vr(r.img,gr(t.params.size||"large"))}" />`:null}
                         </div>
                         ${t.params.imgText?Z`<span class="cl-po--swatch-text">${fi(Rr(t,r,pr.moneyFormat))}</span>`:null}
+                        <span class="visually-hidden">${Rr(t,r,pr.moneyFormat)}</span>
                     </label>
                     ${t.params.items&&(o+1)%t.params.items==0?Z`<div class="cl-po--break" data-index=${o}></div>`:null}
                 `))}
@@ -511,7 +515,7 @@ class Ei{add(t){this.classes.add(t),this.changed=!0}remove(t){this.classes.delet
              ${Li(t.visible?Z`
                  <div class="cl-po--option" data-option="${t.name}">
                     ${t.label?Z`
-                    <label class="cl-po--label" for="${t.id}">${fi(t.label)} ${t.value&&t.params.labelValueText?Z`<span class="cl-po--value">&nbsp;${Ar(Mr(t))}</span>`:null} ${t._priceText?Z`<span class="cl-po--price">&nbsp;${fi(Fr(t._priceText,t.params.priceTemplate))}</span>`:null}    ${t.params.info?Z`<span class="cl-po--info" data-tippy-content="${t.params.info}"></span>`:null}</label>
+                    <div class="cl-po--label" for="${t.id}">${fi(t.label)} ${t.value&&t.params.labelValueText?Z`<span class="cl-po--value">&nbsp;${Ar(Mr(t))}</span>`:null} ${t._priceText?Z`<span class="cl-po--price">&nbsp;${fi(Fr(t._priceText,t.params.priceTemplate))}</span>`:null}    ${t.params.info?Z`<span class="cl-po--info" data-tippy-content="${t.params.info}"></span>`:null}</div>
                     `:null}
                     
                     ${_r.templates[t.type]?Z`

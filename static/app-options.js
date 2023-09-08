@@ -395,17 +395,23 @@ class Ei{add(t){this.classes.add(t),this.changed=!0}remove(t){this.classes.delet
             ${gi(Rr(t,i,pr.moneyFormat))}
         </label>
     `))}
-    `),_r.templates.select=(t,e,i)=>K`
+    `),_r.templates.select=(t,e,i)=>{let r=t.params.groupDelimiter?((t,e)=>{let i=[],r=null;const o={};for(let n=0;n<t.length;n++){const a=t[n],s=(a._text||a.text||"").split(e);if(s.length>1){const t=s[0];r&&t===r.groupLabel||(o.hasOwnProperty(t)?r=o[t]:(r={groupLabel:t,values:[]},i.push(r),o[t]=r)),a._text||(a._text=a.text,a.text=s[1]),r.values.push(a)}else i.push(a)}return i})(t.values,t.params.groupDelimiter):null;const o=(e,i)=>K`
+        <option class="${Si(Ur(t,e))}" .value=${e.value} ?selected=${t.value==e.value} ?disabled=${e.disabled}> ${Rr(t,e,pr.moneyFormat,!0)}</option>
+    `;return K`
     <select class="cl-po--input ${Si(Wr(t))}" id="${t.id}" .value=${Ti(t.value)} name="${Jr(t)}" @change=${e=>io(e,t,i)} ?required=${t.required} form=${$i(e.productFormLink)}>
         ${t.value?null:K`
            <option value="" selected>${t.params.textValueSelect||""}</option>`}
-        
-        ${Ci(t.values||[],(t=>t.value),((e,i)=>K`            
-            <option class="${Si(Ur(t,e))}" .value=${e.value} ?selected=${t.value==e.value} ?disabled=${e.disabled}> ${Rr(t,e,pr.moneyFormat,!0)}</option>
-        `))}
+
+        ${r?.length?K`
+            ${Ci(r,(t=>t.label),((t,e)=>K`
+                ${t.groupLabel?K`
+                    <optgroup label="${t.groupLabel}">
+                        ${Ci(t.values,(t=>t.value),o)}
+                    </optgroup>`:o(t)}
+            `))}`:K`${Ci(t.values||[],(t=>t.value),o)}`}
     </select>
     ${t._editor?t._layer.params.collapse?K`${so(no(t),_r.templates.text_editor(t,e,i),!1,"cl-po--edit")}`:K`${_r.templates.text_editor(t,e,i)}`:null}
-`,_r.templates.font=(t,e,i)=>{let r;r=t.params.fontFamilies&&t.params.fontFamilies.length?t.params.fontFamilies:c.fonts.map((t=>t.name)),t.params.fontSortAlpha&&r.sort(((t,e)=>t.localeCompare(e))),t.values=r.map((t=>({value:t,text:" ",img:c.fontPreview(t)})));let o="dropdown";return t.params.fontSwatch&&(t.params.grow=!0,t.params.items=t.params.fontSwatchItems||3,o="img-swatch"),K`
+`},_r.templates.font=(t,e,i)=>{let r;r=t.params.fontFamilies&&t.params.fontFamilies.length?t.params.fontFamilies:c.fonts.map((t=>t.name)),t.params.fontSortAlpha&&r.sort(((t,e)=>t.localeCompare(e))),t.values=r.map((t=>({value:t,text:" ",img:c.fontPreview(t)})));let o="dropdown";return t.params.fontSwatch&&(t.params.grow=!0,t.params.items=t.params.fontSwatchItems||3,o="img-swatch"),K`
         <div class="cl-po--font-selector">
             ${_r.templates[o](t,e,i)}
         </div>

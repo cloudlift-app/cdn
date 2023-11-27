@@ -325,7 +325,7 @@ class Ei{add(t){this.classes.add(t),this.changed=!0}remove(t){this.classes.delet
             ${Ci(t.values||[],((i,r)=>K`
                 <label class="cl-po--radio-item" >
                     <input type="radio" class="cl-po--input ${Si(Wr(t))}" id="${t.id}-${r}" .value=${i.value} @change=${e=>io(e,t,(t=>t._controller.onChange(e,t)))}
-                           .checked=${Ti(t.value==i.value)} ?required=${t.required} form=${$i(e.productFormLink)}>
+                           .checked=${Ti(t.value==i.value)} ?required=${t.required} name="_${t.name}" form=${$i(e.productFormLink)}>
                     <div class="cl-po--discount-text">${gi(t._controller.optionValueDiscountText(t,i,e))}</div>
                 </label>
             `))}

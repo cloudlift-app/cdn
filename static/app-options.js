@@ -871,7 +871,7 @@ ${e.length>0?te`
         ${Si(r,(e=>te`
             <source src="${e.url}" type="${e.mime_type}">
         `))}
-    </video></div>`})(e)}</div>`:te`<img class="cl-po--gallery-img" data-splide-lazy=${((e,t)=>{if(t.width>0){let i=2*t.width;return i=200*Math.ceil(i/200),i=Math.min(i,t.maxWidth),_r(e,i+"x")}return e})(e.src,t)} alt=${e.alt} data-media-position=${e.position} />`}
+    </video></div>`})(e)}</div>`:te`<img class="cl-po--gallery-img" data-splide-lazy=${((e,t)=>{if(t.width>0){const i=Math.max(window.devicePixelRatio||1,2);let r=t.width*i;return r=200*Math.ceil(r/200),r=Math.min(r,t.maxWidth),_r(e,r+"x")}return e})(e.src,t)} alt=${e.alt} data-media-position=${e.position} />`}
                     </div>
                 `))}
             </div>

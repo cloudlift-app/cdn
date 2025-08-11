@@ -153,9 +153,9 @@ class Ii{add(e){this.classes.add(e),this.changed=!0}remove(e){this.classes.delet
                                         ${e.subtitle?te`<div class="cl-bundle-subtitle">${e.subtitle}</div>`:""}
                                     </div>
                                     <div class="cl-bundle-price">
-                                        <span class="cl-bundle-price__current">${cr(100*e.price,ur.moneyFormat)}</span>
+                                        <span class="cl-bundle-price__current">${vi(cr(100*e.price,ur.moneyFormat))}</span>
                                         ${e.priceBefore!==e.price?te`
-                                            <span class="cl-bundle-price__before">${cr(100*e.priceBefore,ur.moneyFormat)}</span>
+                                            <span class="cl-bundle-price__before">${vi(cr(100*e.priceBefore,ur.moneyFormat))}</span>
                                         `:""}
                                     </div>
                                 </div>
@@ -180,9 +180,9 @@ class Ii{add(e){this.classes.add(e),this.changed=!0}remove(e){this.classes.delet
                                                 </div>
                                             </div>
                                             <div class="cl-bundle-price cl-bundle-item-price">
-                                                <span class="cl-bundle-price__current">${t.price>0?cr(100*t.price*t.quantity,ur.moneyFormat):l.get("product.options.free",{},"FREE")}</span>
+                                                <span class="cl-bundle-price__current">${t.price>0?vi(cr(100*t.price*t.quantity,ur.moneyFormat)):l.get("product.options.free",{},"FREE")}</span>
                                                 ${t.priceBefore!==t.price?te`
-                                                    <span class="cl-bundle-price__before">${cr(100*t.priceBefore*t.quantity,ur.moneyFormat)}</span>
+                                                    <span class="cl-bundle-price__before">${vi(cr(100*t.priceBefore*t.quantity,ur.moneyFormat))}</span>
                                                 `:""}
                                             </div>
                                         </div>

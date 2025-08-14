@@ -149,8 +149,8 @@ class Ii{add(e){this.classes.add(e),this.changed=!0}remove(e){this.classes.delet
 
                                 <div class="cl-bundle-content">
                                     <div class="cl-bundle-text">
-                                        <div class="cl-bundle-title">${e.title}</div>
-                                        ${e.subtitle?te`<div class="cl-bundle-subtitle">${e.subtitle}</div>`:""}
+                                        <div class="cl-bundle-title">${vi(e.title)}</div>
+                                        ${e.subtitle?te`<div class="cl-bundle-subtitle">${vi(e.subtitle)}</div>`:""}
                                     </div>
                                     <div class="cl-bundle-price">
                                         <span class="cl-bundle-price__current">${vi(cr(100*e.price,ur.moneyFormat))}</span>
